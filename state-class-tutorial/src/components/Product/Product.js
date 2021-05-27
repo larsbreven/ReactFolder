@@ -8,6 +8,13 @@ export default class Product extends Component {
     total: 0
   }
 
+  add = () => {
+      this.setState({
+          cart: ['ice cream'],
+          total: 5
+      })
+  }
+
   currencyOptions = {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
@@ -15,6 +22,12 @@ export default class Product extends Component {
 
   getTotal = () => {
     return this.state.total.toLocaleString(undefined, this.currencyOptions)
+  }
+
+  remove = () => {
+      this.setState({
+          cart: []
+      })
   }
 
   render() {
@@ -26,7 +39,8 @@ export default class Product extends Component {
         <div>Total {this.getTotal()}</div>
 
         <div className="product"><span role="img" aria-label="ice cream">🍦</span></div>
-        <button>Add</button> <button>Remove</button>
+        <button onClick={this.add}>Add</button>
+        <button onClick={this.remove}>Remove</button>
       </div>
     )
   }
