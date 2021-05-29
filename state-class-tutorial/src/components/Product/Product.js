@@ -20,22 +20,22 @@ const products = [
   ];
 export default class Product extends Component {
 
-  state = {
-    cart: [],
+  state = {                         // Add a property called state to the product class
+    cart: [],                       // Then add two values to the state object => cart and total
   }
 
-  add = (product) => {
-      this.setState(state => ({
-          cart: [...state.cart, product],
+  add = (product) => {              // The add method will take product as an argument 
+      this.setState(state => ({     // Pass a function that takes the state as an argument and returns an object that
+        cart: [...state.cart, product], // has cart updated with the new product and total updated with new price
       }))
   }
 
-  currencyOptions = {
+  currencyOptions = {               // This property sets the maximum and minimum decimal places for total
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   }
 
-  getTotal = () => {
+  getTotal = () => {      // This method takes state and converts it to a string using an array of currency options
     const total = this.state.cart.reduce((totalCost, item) => totalCost + item.price, 0);
     return total.toLocaleString(undefined, this.currencyOptions)
   }
