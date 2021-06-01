@@ -1,115 +1,115 @@
 import React, { Component } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-import CarTable from "./CarTable";
-import CarDetails from "./CarDetails";
-import CarCreate from "./CarCreate";
-import getCars from "../api/carsApi";
+import PersonTable from "./PersonTable";
+import PersonDetails from "./PersonDetails";
+import PersonCreate from "./PersonCreate";
+import getPersons from "../api/PersonsApi";
 
 import "../css/App.css";
 
 class App extends Component {
   state = {
-    detailsCar: null,
-    createCar: false,
-    carList: [],
+    detailsPerson: null,
+    createPerson: false,
+    personList: [],
   };
 
   componentDidMount() {
     const _this = this;
-    getCars().then((cars) => {
-      _this.setState({ carList: cars });
+    getPersons().then((persons) => {
+      _this.setState({ personList: persons });
     });
   }
 
-  findCar = (id) => {
-    const cars = this.state.carList;
-    let foundCar = null;
-    cars.forEach((element) => {
+  findPerson = (id) => {
+    const persons = this.state.personList;
+    let foundPerson = null;
+    persons.forEach((element) => {
       if (element.id === id) {
-        foundCar = element;
+        foundPerson = element;
       }
     });
-    return foundCar;
+    return foundPerson;
   };
 
-  showCar = (id) => {
-    const car = this.findCar(id);
-    if (car != null) {
+  showPerson = (id) => {
+    const person = this.findPerson(id);
+    if (person != null) {
       this.setState({
-        detailsCar: car,
+        detailsPerson: person,
       });
     }
   };
 
   closeDetails = () => {
     this.setState({
-      detailsCar: null,
+      detailsPerson: null,
     });
   };
 
-  deleteCar = (id) => {
-    const car = this.findCar(id);
-    if (car != null) {
-      const cars = this.state.carList;
-      cars.splice(cars.indexOf(car), 1);
+  deletePerson = (id) => {
+    const person = this.findPerson(id);
+    if (person != null) {
+      const persons = this.state.personList;
+      persons.splice(persons.indexOf(person), 1);
       this.setState({
-        carList: cars,
-        detailsCar: null,
+        personList: persons,
+        detailsPerson: null,
       });
     }
   };
 
-  createCar = () => {
+  createPerson = () => {
     this.setState({
-      createCar: true,
+      createPerson: true,
     });
   };
 
-  addCar = (car) => {
-    const carList = this.state.carList;
-    if (carList === null || carList.length < 1) {
-      car.id = 1;
+  addPerson = (person) => {
+    const personList = this.state.personList;
+    if (personList === null || personList.length < 1) {
+      person.id = 1;
     } else {
       const newId =
-        carList.reduce((rowCar, highest) => {
-          if (rowCar.id > highest.id) {
-            return rowCar.id;
+        personList.reduce((rowPerson, highest) => {
+          if (rowPerson.id > highest.id) {
+            return rowPerson.id;
           }
           return highest;
         }).id + 1; //plus 1 to make new id higher then any id currently in carList.
       //console.log("new Id: ", newId);
-      car.id = newId;
+      person.id = newId;
     }
 
-    carList.push(car);
+    personList.push(person);
 
     this.setState({
-      carList: carList,
-      createCar: false,
+      personList: personList,
+      createPerson: false,
     });
   };
 
   closeCreate = () => {
     this.setState({
-      createCar: false,
+      createPerson: false,
     });
   };
 
   render() {
     const sideElement =
-      this.state.detailsCar != null ? (
-        <CarDetails
-          car={this.state.detailsCar}
+      this.state.detailsPerson != null ? (
+        <PersonDetails
+          person={this.state.detailsPerson}
           closeDetails={this.closeDetails}
-          deleteCar={this.deleteCar}
+          deletePerson={this.deletePerson}
         />
-      ) : this.state.createCar ? (
-        <CarCreate addCar={this.addCar} closeCreate={this.closeCreate} />
+      ) : this.state.createPerson ? (
+        <PersonCreate addPerson={this.addPerson} closeCreate={this.closeCreate} />
       ) : (
         <div>
-          <button onClick={this.createCar} className="btn btn-success">
-            Add Car
+          <button onClick={this.createPerson} className="btn btn-success">
+            Add Person
           </button>
           <p>Click on Details button to see more information here.</p>
         </div>
@@ -120,10 +120,10 @@ class App extends Component {
         <Header />
 
         <div className="container stay-clear">
-          <h3>Car SPA</h3>
+          <h3>Person SPA</h3>
           <hr />
           <div className="row">
-            <CarTable cars={this.state.carList} showCar={this.showCar} />
+            <PersonTable persons={this.state.personList} showPerson={this.showPerson} />
             {sideElement}
           </div>
         </div>

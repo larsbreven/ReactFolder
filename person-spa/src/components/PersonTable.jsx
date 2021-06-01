@@ -1,16 +1,16 @@
 import React from "react";
 
-const CarTable = (props) => {
-  const rows = props.cars.map((car) => {
+const PersonTable = (props) => {
+  const rows = props.persons.map((person) => {
     return (
-      <tr key={car.id}>
-        <td>{car.brand}</td>
-        <td>{car.model}</td>
-        <td>{car.price}</td>
+      <tr key={person.id}>
+        <td>{person.city}</td>
+        <td>{person.name}</td>
+        <td>{person.phone}</td>
         <td
           className="btn btn-info"
           onClick={() => {
-            props.showCar(car.id);
+            props.showPerson(person.id);
           }}>
           Details
         </td>
@@ -23,9 +23,9 @@ const CarTable = (props) => {
       <table className="table table-striped table-bordered">
         <thead className="thead-dark">
           <tr>
-            <th>Brand</th>
-            <th>Model</th>
-            <th>Price</th>
+            <th>City</th>
+            <th>Name</th>
+            <th>Phone</th>
             <th></th>
           </tr>
         </thead>
@@ -35,4 +35,4 @@ const CarTable = (props) => {
   );
 };
 
-export default CarTable;
+export default PersonTable;

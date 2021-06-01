@@ -1,20 +1,20 @@
 import React from "react";
 
-const CarDetails = (props) => {
+const PersonDetails = (props) => {
   return (
     <div className="col-md-6">
       <ul className="list-group">
         <li className="list-group-item">
-          <b>Brand:</b>
-          <p>{props.car.brand}</p>
+          <b>City:</b>
+          <p>{props.person.city}</p>
         </li>
         <li className="list-group-item">
-          <b>Model:</b>
-          <p>{props.car.model}</p>
+          <b>Name:</b>
+          <p>{props.person.name}</p>
         </li>
         <li className="list-group-item">
-          <b>Price:</b>
-          <p>{props.car.price}</p>
+          <b>Phone:</b>
+          <p>{props.person.phone}</p>
         </li>
 
         <li className="list-group-item">
@@ -24,7 +24,7 @@ const CarDetails = (props) => {
           </button>
           <button
             className="btn btn-danger"
-            onClick={() => props.deleteCar(props.car.id)}>
+            onClick={() => props.deletePerson(props.person.id)}>
             Delete
           </button>
         </li>
@@ -33,4 +33,4 @@ const CarDetails = (props) => {
   );
 };
 
-export default CarDetails;
+export default PersonDetails;

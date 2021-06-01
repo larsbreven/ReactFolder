@@ -1,16 +1,16 @@
 import React, { Component } from "react";
-class CarCreate extends Component {
-  createCar = (event) => {
+class PersonCreate extends Component {
+  createPerson = (event) => {
     event.preventDefault();
 
-    const car = {
+    const person = {
       id: 0,
-      brand: event.target["brand"].value,
-      model: event.target["model"].value,
-      price: Number(event.target["price"].value),
+      city: event.target["city"].value,
+      name: event.target["name"].value,
+      phone: Number(event.target["phone"].value),
     };
 
-    this.props.addCar(car);
+    this.props.addPerson(person);
   };
 
   render() {
@@ -22,42 +22,42 @@ class CarCreate extends Component {
 
         <form onSubmit={this.createCar}>
           <div className="row mb-2">
-            <label htmlFor="brand" className="col-2 mt-2">
-              Brand:
+            <label htmlFor="city" className="col-2 mt-2">
+              City:
             </label>
             <input
-              id="brand"
+              id="city"
               type="text"
               required
               minLength="2"
               className="form-control col-10"
-              placeholder="Enter Brand"
+              placeholder="Enter City"
             />
           </div>
           <div className="row mb-2">
-            <label htmlFor="model" className="col-2 mt-2">
-              Model:
+            <label htmlFor="name" className="col-2 mt-2">
+              Name:
             </label>
             <input
-              id="model"
+              id="name"
               type="text"
               required
               className="form-control col-10"
-              placeholder="Enter Model"
+              placeholder="Enter Name"
             />
           </div>
           <div className="row mb-2">
-            <label htmlFor="price" className="col-2 mt-2">
-              Price:
+            <label htmlFor="phone" className="col-2 mt-2">
+              Phone:
             </label>
             <input
-              id="price"
+              id="phone"
               type="number"
               required
               step="1"
               min="1"
               className="form-control col-10"
-              placeholder="Enter Price"
+              placeholder="Enter Phone"
             />
           </div>
 
@@ -82,4 +82,4 @@ class CarCreate extends Component {
   }
 }
 
-export default CarCreate;
+export default PersonCreate;
