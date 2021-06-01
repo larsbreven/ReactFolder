@@ -1,9 +1,9 @@
 import React from "react";
 
 const PersonTable = (props) => {
-  const rows = props.persons.map((person) => {
+  const rows = props.persons.map((person) => {  // For each person in the list a table row is created
     return (
-      <tr key={person.id}>
+      <tr key={person.id}>                      
         <td>{person.city}</td>
         <td>{person.name}</td>
         <td>{person.phone}</td>

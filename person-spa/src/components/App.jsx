@@ -10,22 +10,22 @@ import "../css/App.css";
 
 class App extends Component {
   state = {
-    detailsPerson: null,
-    createPerson: false,
-    personList: [],
+    detailsPerson: null,        // Show "Details of the person"
+    createPerson: false,        // Show "Create person"
+    personList: [],             // Show the list of the persons"
   };
 
-  componentDidMount() {
-    const _this = this;
-    getPersons().then((persons) => {
-      _this.setState({ personList: persons });
+  componentDidMount() {         // When this component is mounted, the method will run
+    const _this = this;         // A get request to the backend, to get the personList    
+      getPersons().then((persons) => {
+      _this.setState({ personList: persons });  // Then React will have the same list as the database have
     });
   }
 
-  findPerson = (id) => {
-    const persons = this.state.personList;
+  findPerson = (id) => {        // Find a person in the list, the list is already in the frontend
+    const persons = this.state.personList;    // OK to use this method for smaller lists, not big ones
     let foundPerson = null;
-    persons.forEach((element) => {
+    persons.forEach((element) => {  // Loop through the list
       if (element.id === id) {
         foundPerson = element;
       }
@@ -33,7 +33,7 @@ class App extends Component {
     return foundPerson;
   };
 
-  showPerson = (id) => {
+  showPerson = (id) => {          // Show details for a person
     const person = this.findPerson(id);
     if (person != null) {
       this.setState({
@@ -42,13 +42,13 @@ class App extends Component {
     }
   };
 
-  closeDetails = () => {
+  closeDetails = () => {          // Method to close down the window
     this.setState({
       detailsPerson: null,
     });
   };
 
-  deletePerson = (id) => {
+  deletePerson = (id) => {        // Method to delete a person, different method to be used when there is a backend
     const person = this.findPerson(id);
     if (person != null) {
       const persons = this.state.personList;
@@ -82,11 +82,11 @@ class App extends Component {
       person.id = newId;
     }
 
-    personList.push(person);
+    personList.push(person);    // Push the new person into the list
 
-    this.setState({
-      personList: personList,
-      createPerson: false,
+    this.setState({             
+      personList: personList,   // Save it
+      createPerson: false,      // Close the create
     });
   };
 
@@ -97,14 +97,14 @@ class App extends Component {
   };
 
   render() {
-    const sideElement =
-      this.state.detailsPerson != null ? (
-        <PersonDetails
+    const sideElement =                             
+      this.state.detailsPerson != null ? (          
+        <PersonDetails                              // Details of a person
           person={this.state.detailsPerson}
           closeDetails={this.closeDetails}
           deletePerson={this.deletePerson}
         />
-      ) : this.state.createPerson ? (
+      ) : this.state.createPerson ? (               // Create a new person
         <PersonCreate addPerson={this.addPerson} closeCreate={this.closeCreate} />
       ) : (
         <div>
@@ -117,7 +117,7 @@ class App extends Component {
 
     return (
       <div>
-        <Header />
+        <Header />                                                     
 
         <div className="container stay-clear">
           <h3>Person SPA</h3>
