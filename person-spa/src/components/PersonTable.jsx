@@ -7,12 +7,14 @@ const PersonTable = (props) => {
         <td>{person.city}</td>
         <td>{person.name}</td>
         <td>{person.phone}</td>
-        <td
-          className="btn btn-info"
-          onClick={() => {
+        <td>
+          <button
+            onClick={() => {
             props.showPerson(person.id);
-          }}>
+          }}
+          className="btn btn-info">
           Details
+          </button>
         </td>
       </tr>
     );

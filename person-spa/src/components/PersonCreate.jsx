@@ -4,10 +4,9 @@ class PersonCreate extends Component {
     event.preventDefault();
 
     const person = {
-      id: 0,
-      city: event.target["city"].value,
-      name: event.target["name"].value,
-      phone: Number(event.target["phone"].value),
+      City: event.target["city"].value,
+      Name: event.target["name"].value,
+      Phone: Number(event.target["phone"].value),
     };
 
     this.props.addPerson(person);
@@ -17,7 +16,7 @@ class PersonCreate extends Component {
     return (
       <div className="col-md-6">
         <div className="row">
-          <h3 className="col-12">Add Car</h3>
+          <h3 className="col-12">Add Person</h3>
         </div>
 
         <form onSubmit={this.createCar}>
