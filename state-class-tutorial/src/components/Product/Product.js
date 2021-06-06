@@ -31,8 +31,8 @@ export default class Product extends Component {
   }
 
   currencyOptions = {               // This property sets the maximum and minimum decimal places for total
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
+    minimumFractionDigits: 1,
+    maximumFractionDigits: 1,
   }
 
   getTotal = () => {      // This method takes state and converts it to a string using an array of currency options
