@@ -10,13 +10,13 @@ import "../css/App.css";
 
 class App extends Component {
   state = {
-    detailsPerson: null,        // Show "Details of the person"
-    createPerson: false,        // Show "Create person"
-    personList: [],             // Show the list of the persons"
+    detailsPerson: null,              // Show "Details of the person"
+    createPerson: false,              // Show "Create person"
+    personList: [],                   // Show the list of the persons"
   };
 
-  componentDidMount() {         // When this component is mounted, the method will run
-    const _this = this;         // A get request to the backend, to get the personList    
+  componentDidMount() {               // When this component is mounted, the method will run
+    const _this = this;               // A get request to the backend, to get the personList    
       getPersons().then((persons) => {
       _this.setState({ personList: persons });  // Then React will have the same list as the database have
     });
