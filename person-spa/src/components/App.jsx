@@ -16,7 +16,8 @@ class App extends Component {
   };
 
   componentDidMount() {               // When this component is mounted, the method will run
-    const _this = this;               // A get request to the backend, to get the personList    
+    const _this = this;               
+    // A get request to the backend, to get the personList    
       getPersons().then((persons) => {
       _this.setState({ personList: persons });  // Then React will have the same list as the database have
     });

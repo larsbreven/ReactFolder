@@ -8,7 +8,7 @@ class PersonCreate extends Component {
       Name: event.target["name"].value,
       Phone: Number(event.target["phone"].value),
     };
-
+    console.log("newPerson: ", person);                  // Kolla här så att information kommer med från backend.
     this.props.addPerson(person);
   };
 
