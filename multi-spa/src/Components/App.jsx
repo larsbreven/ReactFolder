@@ -6,7 +6,7 @@ import ProductDetails from "./ProductDetails";
 import ProductCreate from "./ProductCreate";
 import getProducts, { getProductById, createProduct, deleteProduct } from "../Api/ProductsApi";
 
-import "../css/App.css";
+import "../App.css";
 
 class App extends Component {
   state = {
@@ -19,7 +19,7 @@ class App extends Component {
     const _this = this;                                                         /* This will happen when the application starts up */
 
     getProducts().then((products) => {                                          /* A get request to the backend, to get the productlist */
-      _this.setState({ productList: products });                                /* Then React will have the same list as the database have */
+      _this.setState({ productLists: products });                                /* Then React will have the same list as the database have */
     });
 
   }
