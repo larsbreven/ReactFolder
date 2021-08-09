@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import ProductTable from './Components/ProductTable';
 
 function App() {
   return (
@@ -18,6 +19,18 @@ function App() {
           Learn React
         </a>
       </header>
+      <div className="main-content">
+        <h1>Hello World</h1>
+
+        <ProductTable />
+        
+      </div>
+
+
+    <footer>
+      <span>&copy;Rajtan-Tajtan Technology</span>
+    </footer>
+
     </div>
   );
 }
