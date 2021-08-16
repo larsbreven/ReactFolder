@@ -14,7 +14,7 @@ const ProductTable = (props) => {                                               
               props.showProduct(product.id);                                    /* Click on the button to show the product */
             }}
             className="btn btn-info">
-            Details
+            Detaljvy
           </button>
         </td>
       </tr>
@@ -26,11 +26,11 @@ const ProductTable = (props) => {                                               
       <table className="table table-striped table-bordered">
         <thead className="thead-dark">
           <tr>
-            <th>Name</th>
-            <th>Category</th>
-            <th>Origin</th>
-            <th>Price</th>
-            <th></th>
+            <th>Benämning</th>
+            <th>Kategori</th>
+            <th>Ursprung</th>
+            <th>Pris</th>
+            <th>Detaljer</th>
           </tr>
         </thead>
         <tbody>{rows}</tbody>

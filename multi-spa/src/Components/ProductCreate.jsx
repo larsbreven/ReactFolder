@@ -16,6 +16,7 @@ class ProductCreate extends Component {
   };
 
   render() {
+
     return (
       <div className="col-md-6">
         <div className="row">
@@ -24,45 +25,37 @@ class ProductCreate extends Component {
 
         <form onSubmit={this.createProduct}>
           <div className="row mb-2">
-            <label htmlFor="name" className="col-2 mt-2">
-              Name:
-            </label>
+            <label htmlFor="name" className="col-2 mt-2"></label>
             <input
               id="name"
               type="text"
               required
               className="form-control col-10"
-              placeholder="Enter Name"
+              placeholder="Benämning"
               />
           </div>
           <div className="row mb-2">
-            <label htmlFor="category" className="col-2 mt-2">
-              Category:
-            </label>
+            <label htmlFor="category" className="col-2 mt-2"></label>
             <input
               id="category"
               type="text"
               required
               className="form-control col-10"
-              placeholder="Enter Category"
+              placeholder="Kategori"
             />
           </div>
           <div className="row mb-2">
-            <label htmlFor="origin" className="col-2 mt-2">
-              Origin:
-            </label>
+            <label htmlFor="origin" className="col-2 mt-2"></label>
             <input
               id="origin"
               type="text"
               required
               className="form-control col-10"
-              placeholder="Enter Origin"
+              placeholder="Ursprung"
             />
           </div>
           <div className="row mb-2">
-            <label htmlFor="price" className="col-2 mt-2">
-              Price:
-            </label>
+            <label htmlFor="price" className="col-2 mt-2"></label>
             <input
               id="price"
               type="number"
@@ -70,24 +63,27 @@ class ProductCreate extends Component {
               step="1"
               min="1"
               className="form-control col-10"
-              placeholder="Enter Price"
+              placeholder="Pris"
             />
           </div>
 
           <div className="row d-flex justify-content-center">
             <input
-              type="reset"
-              className="mr-2 btn btn-warning"
-              value="Reset"
+             type="reset"
+             className="mr-2 btn btn-warning"
+             value="Radera text"
             />
-            <input type="submit" className=" btn btn-success" value="Create" />
+            <input
+             type="submit"
+             className=" btn btn-success"
+             value="Skapa produkt" />
           </div>
         </form>
         <div className="d-flex justify-content-end">
           <button
             className="btn btn-secondary"
             onClick={this.props.closeCreate}>
-            Close
+            Stäng sida
           </button>
         </div>
       </div>

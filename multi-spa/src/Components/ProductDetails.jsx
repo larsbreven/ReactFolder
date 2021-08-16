@@ -1,23 +1,33 @@
 import React from "react";
 
 const ProductDetails = (props) => {
+  const rightToDelete = props.loginStatus ? (
+    <button
+      className="btn btn-danger"
+      onClick={() => props.deleteProduct(props.product.id)}>
+      Delete
+    </button>
+  ) : (
+    ""
+  );
+
   return (
     <div className="col-md-6">
       <ul className="list-group">
         <li className="list-group-item">
-          <b>Name:</b>
+          <b>Benämning:</b>
           <p>{props.product.name}</p>
         </li>
         <li className="list-group-item">
-          <b>Category:</b>
+          <b>Kategori:</b>
           <p>{props.product.category}</p>
         </li>
         <li className="list-group-item">
-          <b>Origin:</b>
+          <b>Ursprung:</b>
           <p>{props.product.origin}</p>
         </li>
         <li className="list-group-item">
-          <b>Price:</b>
+          <b>Pris:</b>
           <p>{props.product.price}</p>
         </li>
 
@@ -26,11 +36,8 @@ const ProductDetails = (props) => {
           <button className="btn btn-secondary" onClick={props.closeDetails}>
             Close
           </button>
-          <button
-            className="btn btn-danger"
-            onClick={() => props.deleteProduct(props.product.id)}>
-            Delete
-          </button>
+
+          {rightToDelete}
         </li>
       </ul>
     </div>

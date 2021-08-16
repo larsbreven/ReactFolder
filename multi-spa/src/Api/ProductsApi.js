@@ -6,21 +6,16 @@ import axios from 'axios';
     });
     
 }*/
-/* let apiUrl = 'https://localhost:44319/api/React'; */
-/*
-export function setApiUrl(url) {
-    apiUrl = url;
-}
-*/
-export default function getProducts() {                                         /*  */ 
+
+
+export default function getProducts() {                                          
     return fetch('https://localhost:44319/api/React')
         .then(data => data.json());                                             /* Takes out the data and convert it to json */
 }
 
-
 export async function getProductById(id) {
     try {
-        let response = await fetch('https://localhost:44319/api/React' + id);
+        let response = await fetch('https://localhost:44319/api/React/' + id);
         //console.log(response);
         let json = await response.json();
         //console.log(json);
@@ -32,9 +27,8 @@ export async function getProductById(id) {
 }
 
 export async function createProduct(product) {
-
     try {
-        let response = await axios.post('https://localhost:44319/api/React', {
+        let response = await axios.post('https://localhost:44319/api/React/', {
             Name: product.Name,
             Category: product.Category,
             Origin: product.Origin,
@@ -50,10 +44,9 @@ export async function createProduct(product) {
     }
 }
 
-export async function deleteProduct(id) {
-
+export async function deleteProduct(id, token) {
     try {
-        let response = await axios.delete('https://localhost:44319/api/React' + id);
+        let response = await axios.delete('https://localhost:44319/api/React/' + id, { headers: { "Authorization": `Bearer ${token}` } });
         console.log(response);
         return true;                                                            // Product deleted
     }
@@ -71,8 +64,8 @@ async function getJson() {
         let json = await response.json();
         console.log(json);
     }
-    catch (e) {
-        console.log('Error!', e);
+    catch (error) {
+        console.log('Error!', error);
     }
 }
 */
